@@ -5,7 +5,8 @@
       <map>
         <entry key="app/src/main/res/drawable/ic_logo_full.xml" value="0.1455" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.29393115942028986" />
-        <entry key="feature-book-listing/src/main/res/layout/fragment_audio_books_listing.xml" value="0.7566776398689516" />
+        <entry key="feature-book-listing/src/main/res/layout/fragment_audio_books_listing.xml" value="0.335" />
+        <entry key="feature-book-listing/src/main/res/layout/item_ad_book_listing.xml" value="0.29393115942028986" />
         <entry key="feature-book-listing/src/main/res/layout/item_audio_book_listing.xml" value="0.29393115942028986" />
       </map>
     </option>

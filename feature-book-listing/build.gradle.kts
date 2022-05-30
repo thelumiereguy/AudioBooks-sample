@@ -1,6 +1,4 @@
-
 import configs.implementCommonDependencies
-import java.net.URI
 
 plugins {
     id("com.android.library")
@@ -41,6 +39,13 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
+        freeCompilerArgs = configs.Configs.FreeCompilerArgs
+    }
+
+    testOptions {
+        unitTests.all {
+            it.useJUnitPlatform()
+        }
     }
 }
 
@@ -52,6 +57,8 @@ dependencies {
 
     implementation(project(":core:ui"))
     implementation(project(":core:data"))
+    implementation(project(":core:ab-tests"))
+    implementation(project(":helpers"))
 
     implementation("androidx.core:core-ktx:1.7.0")
     implementation("androidx.appcompat:appcompat:1.4.1")
@@ -63,7 +70,11 @@ dependencies {
     implementation("androidx.fragment:fragment-ktx:1.4.1")
     implementation("com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.2")
     implementation("com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.2")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+
+    testImplementation(kotlin("test"))
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.2")
+    testImplementation("org.junit.jupiter:junit-jupiter")
+
+    testImplementation("io.mockk:mockk:1.12.2")
 }

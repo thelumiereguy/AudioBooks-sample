@@ -66,8 +66,8 @@
             android:imeOptions="actionSearch"
             android:inputType="textCapWords"
             android:maxLines="1"
-            tools:text="Text being searched"
-            android:textColorHint="#B8B8C7" />
+            android:textColorHint="#B8B8C7"
+            tools:text="Text being searched" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -77,11 +77,37 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:clipToPadding="false"
+        android:focusable="true"
         android:paddingTop="16dp"
         android:paddingBottom="24dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tl_search_layout" />
+        app:layout_constraintTop_toBottomOf="@id/tl_search_layout"
+        tools:listitem="@layout/item_audio_book_listing"
+        tools:visibility="visible" />
+
+
+    <FrameLayout
+        android:id="@+id/fl_loader_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tl_search_layout"
+        tools:visibility="gone">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:hideAnimationBehavior="outward"
+            app:indicatorSize="32dp"
+            app:trackColor="?attr/colorPrimary" />
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
