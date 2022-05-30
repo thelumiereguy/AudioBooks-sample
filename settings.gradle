@@ -1,0 +1,25 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        google()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven { url 'https://jitpack.io' }
+        jcenter()
+        google()
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+    }
+}
+rootProject.name = "AudioBooks-sample"
+include ':app'
+include ':feature-book-listing'
+include ':feature-audio-book-player'
+include ':core'
+include ':core:data'
+include ':core:ab-tests'
+include ':core:ui'

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/audio_book_list_fragment">
+
+    <fragment
+        android:id="@+id/audio_book_list_fragment"
+        android:name="dev.thelumiereguy.feature_book_listing.presentation.ui.AudioBooksListingFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_audio_books_listing">
+
+    </fragment>
+
+
+<!--    <fragment-->
+<!--        android:id="@+id/new_todo_item_fragment"-->
+<!--        android:name="com.linecorp.clientexam.todo.NewTodoItemFragment"-->
+<!--        android:label="@string/new_todo_item_fragment_label"-->
+<!--        tools:layout="@layout/new_todo_item_fragment">-->
+<!--        <argument-->
+<!--            android:name="newItemId"-->
+<!--            app:argType="integer"-->
+<!--            app:nullable="false" />-->
+<!--    </fragment>-->
+</navigation>

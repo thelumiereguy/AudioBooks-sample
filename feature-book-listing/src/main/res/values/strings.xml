@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="my_books" translatable="false">My Books</string>
+    <string name="search_books_or_author">Search Books or Author...</string>
+</resources>
