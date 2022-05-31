@@ -1,5 +1,7 @@
 package dev.thelumiereguy.data.repo
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.map
 import dev.thelumiereguy.data.local.dao.AudioBookDao
 import dev.thelumiereguy.data.local.mapper.mapResponseToEntity
 import dev.thelumiereguy.data.mapper.BookCoverToDrawableMapper
@@ -28,9 +30,16 @@ class BookListingRepoImpl @Inject constructor(
             }.flowOn(dispatcherProvider.io)
     }
 
+    override fun getAudioBookDetails(bookId: Long): LiveData<AudioBook?> {
+        return audioBookDao.findAudioBook(bookId).map {
+            it?.mapBookEntityToDomainModel()
+        }
+    }
+
     override suspend fun refreshAudioBooks() {
         supervisorScope {
             withContext(dispatcherProvider.io) {
+                delay(500)
                 try {
                     val response = booksApi.getBooks()
                     val audioBooksEntityList = response.data.books
@@ -50,5 +59,11 @@ class BookListingRepoImpl @Inject constructor(
                     bookModel.mapBookEntityToDomainModel()
                 }
             }.flowOn(dispatcherProvider.io)
+    }
+
+    override suspend fun updateAudioBookProgress(bookId: Long, progress: Int) {
+        withContext(dispatcherProvider.io) {
+            audioBookDao.updateAudioBookProgress(bookId, progress)
+        }
     }
 }

@@ -13,7 +13,7 @@ class ExperimentModule {
     @Named(BOOK_LISTING_AD)
     @Provides
     fun providesBookListingAd(): ExperimentBucket {
-        return ExperimentBucket.A
+        return ExperimentBucket.B
     }
 
     companion object {

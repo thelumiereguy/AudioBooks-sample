@@ -10,5 +10,6 @@ fun AudioBookEntity.mapBookEntityToDomainModel(): AudioBook {
         bookAuthor,
         bookCoverDrawable,
         bookAudioUrl,
+        progress
     )
 }

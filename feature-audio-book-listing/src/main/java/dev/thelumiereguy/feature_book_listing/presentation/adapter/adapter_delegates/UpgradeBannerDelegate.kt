@@ -16,8 +16,7 @@ fun upgradeBannerDelegate() =
     ) {
 
         bind {
-            binding.run {
-                ivAdImage.setImageResource(dev.thelumiereguy.ui.R.drawable.ic_logo_full)
+            binding.btnUpgrade.setOnClickListener {
             }
         }
     }

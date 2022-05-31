@@ -44,28 +44,31 @@ class AudioBooksListingFragment : Fragment(R.layout.fragment_audio_books_listing
         override fun afterTextChanged(p0: Editable?) = Unit
     }
 
-    private val bookListingAdapter by lazy(LazyThreadSafetyMode.NONE) {
-        BookListingAdapter(
-            onClick = { bookId ->
-                navigateToPlayer(bookId)
-            }
-        )
-    }
+    private var bookListingAdapter: BookListingAdapter? = null
 
     private fun navigateToPlayer(bookId: Long) {
+        assert(activity is AudioBookListingUIActions) {
+            "Parent activity should implement [AudioBookListingUIActions] interface for navigation"
+        }
+
+        (activity as AudioBookListingUIActions).navigateToPlayer(bookId)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupView(view)
         observeViewModel()
-
-        viewModel.add(AudioBookListingActions.ObserveContents)
-
         viewModel.add(AudioBookListingActions.Fetch)
+        viewModel.add(AudioBookListingActions.ObserveContents)
     }
 
     private fun setupView(view: View) {
+        bookListingAdapter = BookListingAdapter(
+            onClick = { bookId ->
+                navigateToPlayer(bookId)
+            }
+        )
+
         viewBinding = FragmentAudioBooksListingBinding.bind(view).apply {
             rvBooksList.run {
                 adapter = bookListingAdapter
@@ -73,7 +76,7 @@ class AudioBooksListingFragment : Fragment(R.layout.fragment_audio_books_listing
                 addItemDecoration(
                     SimpleItemDividerDecorator(
                         requireContext().toDp(4).roundToInt(),
-                        true
+                        false
                     )
                 )
             }
@@ -97,7 +100,7 @@ class AudioBooksListingFragment : Fragment(R.layout.fragment_audio_books_listing
                         is UIState.ListLoadedState -> {
                             binding.tvNoItems.isVisible = false
                             binding.rvBooksList.isVisible = true
-                            bookListingAdapter.items = uiState.listItems
+                            bookListingAdapter?.items = uiState.listItems
                         }
                     }
                 }
@@ -148,6 +151,7 @@ class AudioBooksListingFragment : Fragment(R.layout.fragment_audio_books_listing
 
     override fun onDestroyView() {
         viewBinding = null
+        bookListingAdapter = null
         super.onDestroyView()
     }
 }
