@@ -9,8 +9,3 @@ sealed class UIState {
 
     object EmptyState : UIState()
 }
-
-sealed interface UIEvent {
-    object ShowLoading : UIEvent
-    object HideLoading : UIEvent
-}

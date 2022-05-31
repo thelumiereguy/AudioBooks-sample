@@ -25,6 +25,7 @@ fun bookItemDelegate(onClick: ((bookId: Long) -> Unit)?) =
                     .into(ivBookLogo)
 
                 root.setOnClickListener {
+                    root.requestFocus()
                     onClick?.invoke(item.audioBookItem.bookId)
                 }
             }

@@ -53,7 +53,9 @@ internal class AudioBooksListingViewModelTest {
                 fakeData.map(::BookItem)
             )
 
-            viewModel.fetchBooks()
+            viewModel.add(AudioBookListingActions.ObserveContents)
+
+            viewModel.add(AudioBookListingActions.Fetch)
 
             assertEquals(UIEvent.ShowLoading, viewModel.events.first())
 
@@ -75,7 +77,9 @@ internal class AudioBooksListingViewModelTest {
 
             val expectedOutput = UIState.EmptyState
 
-            viewModel.fetchBooks()
+            viewModel.add(AudioBookListingActions.ObserveContents)
+
+            viewModel.add(AudioBookListingActions.Fetch)
 
             assertEquals(UIEvent.ShowLoading, viewModel.events.first())
 
@@ -112,7 +116,9 @@ internal class AudioBooksListingViewModelTest {
                         fakeData.map(::BookItem).last()
                 )
 
-                viewModel.fetchBooks()
+                viewModel.add(AudioBookListingActions.ObserveContents)
+
+                viewModel.add(AudioBookListingActions.Fetch)
 
                 assertEquals(UIEvent.ShowLoading, viewModel.events.first())
 
@@ -145,7 +151,9 @@ internal class AudioBooksListingViewModelTest {
                         BookItem(fakeData.last())
                 )
 
-                viewModel.fetchBooks()
+                viewModel.add(AudioBookListingActions.ObserveContents)
+
+                viewModel.add(AudioBookListingActions.Fetch)
 
                 assertEquals(UIEvent.ShowLoading, viewModel.events.first())
 
@@ -155,6 +163,97 @@ internal class AudioBooksListingViewModelTest {
 
                 assertEquals(expectedOutput, viewModel.state.value)
             }
+    }
+
+    @Nested
+    inner class SearchingLogic {
+
+        @AfterTest
+        fun after() {
+            Dispatchers.resetMain()
+        }
+
+        @Test
+        fun `when searched for a string, set Loaded List state with searched items only`() =
+            runTest {
+
+                initDispatchers(ExperimentBucket.A)
+
+                val fakeData = fakeRepo.getItems(10)
+
+                fakeRepo.audiobookListFlow = flowOf(fakeData)
+
+                val expectedOutput = UIState.ListLoadedState(
+                    fakeData.map(::BookItem)
+                )
+
+                viewModel.add(AudioBookListingActions.ObserveContents)
+
+                viewModel.add(AudioBookListingActions.Fetch)
+
+                assertEquals(UIEvent.ShowLoading, viewModel.events.first())
+
+                assertEquals(UIEvent.HideLoading, viewModel.events.first())
+
+                advanceUntilIdle()
+
+                assertEquals(expectedOutput, viewModel.state.value)
+
+                viewModel.add(AudioBookListingActions.UpdateQuery("Har"))
+
+                advanceUntilIdle()
+
+                assertEquals(
+                    UIState.ListLoadedState(
+                        listOf(
+                            BookItem(
+                                AudioBook(
+                                    3,
+                                    "Harry Potter and the Prisoner of Azkaban",
+                                    "J.K. Rowling",
+                                    3,
+                                    ""
+                                )
+                            )
+                        )
+                    ),
+                    viewModel.state.value
+                )
+            }
+
+        @Test
+        fun `given a search string, when none of the items match, set empty state`() = runTest {
+
+            initDispatchers(ExperimentBucket.A)
+
+            val fakeData = fakeRepo.getItems(10)
+
+            fakeRepo.audiobookListFlow = flowOf(fakeData)
+
+            val expectedOutput = UIState.ListLoadedState(
+                fakeData.map(::BookItem)
+            )
+
+            viewModel.add(AudioBookListingActions.ObserveContents)
+
+            viewModel.add(AudioBookListingActions.Fetch)
+
+            assertEquals(UIEvent.ShowLoading, viewModel.events.first())
+
+            assertEquals(UIEvent.HideLoading, viewModel.events.first())
+
+            advanceUntilIdle()
+
+            assertEquals(expectedOutput, viewModel.state.value)
+
+            viewModel.add(AudioBookListingActions.UpdateQuery("watch"))
+
+            advanceUntilIdle()
+
+            assertEquals(
+                UIState.EmptyState, viewModel.state.value
+            )
+        }
     }
 
     private fun TestScope.initDispatchers(upgradeBannerExperiment: ExperimentBucket) {

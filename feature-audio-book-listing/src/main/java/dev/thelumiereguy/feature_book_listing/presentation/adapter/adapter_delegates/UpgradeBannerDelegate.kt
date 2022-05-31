@@ -1,13 +1,13 @@
 package dev.thelumiereguy.feature_book_listing.presentation.adapter.adapter_delegates
 
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
-import dev.thelumiereguy.feature_book_listing.databinding.ItemAdBookListingBinding
+import dev.thelumiereguy.feature_book_listing.databinding.ItemUpgradeBannerBinding
 import dev.thelumiereguy.feature_book_listing.presentation.adapter.UpgradeToBannerItem
 
-fun adItemDelegate() =
-    adapterDelegateViewBinding<UpgradeToBannerItem, dev.thelumiereguy.helpers.ui.adapter.BaseListItem, ItemAdBookListingBinding>(
+fun upgradeBannerDelegate() =
+    adapterDelegateViewBinding<UpgradeToBannerItem, dev.thelumiereguy.helpers.ui.adapter.BaseListItem, ItemUpgradeBannerBinding>(
         viewBinding = { layoutInflater, parent ->
-            ItemAdBookListingBinding.inflate(
+            ItemUpgradeBannerBinding.inflate(
                 layoutInflater,
                 parent,
                 false

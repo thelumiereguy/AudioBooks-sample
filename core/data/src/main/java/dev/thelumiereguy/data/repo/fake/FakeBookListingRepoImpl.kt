@@ -4,6 +4,7 @@ import dev.thelumiereguy.data.models.AudioBook
 import dev.thelumiereguy.data.repo.BookListingRepo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.map
 
 class FakeBookListingRepoImpl : BookListingRepo {
 
@@ -35,11 +36,20 @@ class FakeBookListingRepoImpl : BookListingRepo {
 
     var audiobookListFlow = flowOf(getItems(10))
 
-    override suspend fun observeAudioBooks(): Flow<List<AudioBook>> {
+    override fun observeAudioBooks(): Flow<List<AudioBook>> {
         return audiobookListFlow
     }
 
     override suspend fun refreshAudioBooks() = Unit
+
+    override fun searchAudioBooks(searchString: String): Flow<List<AudioBook>?> {
+        return audiobookListFlow.map {
+            it.filter { audioBook ->
+                audioBook.bookAuthor.contains(searchString) ||
+                    audioBook.bookName.contains(searchString)
+            }
+        }
+    }
 
     fun reset() {
         audiobookListFlow = flowOf(getItems(10))

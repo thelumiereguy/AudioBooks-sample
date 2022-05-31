@@ -40,12 +40,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_logo" />
 
-
+\
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tl_search_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:hint="@string/search_books_or_author"
         app:boxBackgroundColor="#F5F5FA"
         app:boxCornerRadiusBottomEnd="8dp"
@@ -63,7 +65,6 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:imeOptions="actionSearch"
             android:inputType="textCapWords"
             android:maxLines="1"
             android:textColorHint="#B8B8C7"
@@ -76,8 +77,6 @@
         android:id="@+id/rv_books_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:clipToPadding="false"
-        android:focusable="true"
         android:paddingTop="16dp"
         android:paddingBottom="24dp"
         android:visibility="gone"
@@ -108,5 +107,21 @@
             android:indeterminateTint="?attr/colorPrimary" />
 
     </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_no_items"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/there_are_no_more_items_to_show"
+        android:textColor="#010104"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:fontFamily="@font/poppins_semibold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tl_search_layout"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

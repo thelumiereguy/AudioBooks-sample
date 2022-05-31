@@ -18,4 +18,7 @@ abstract class AudioBookDao {
 
     @Query("SELECT * from audio_books")
     abstract fun getAudioBooksFlow(): Flow<List<AudioBookEntity>?>
+
+    @Query("SELECT * from audio_books WHERE book_author LIKE '%' || :searchString || '%' or book_name LIKE '%' || :searchString || '%'")
+    abstract fun selectAudioBooks(searchString: String): Flow<List<AudioBookEntity>?>
 }

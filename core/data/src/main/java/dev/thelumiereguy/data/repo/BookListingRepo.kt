@@ -4,6 +4,7 @@ import dev.thelumiereguy.data.models.AudioBook
 import kotlinx.coroutines.flow.Flow
 
 interface BookListingRepo {
-    suspend fun observeAudioBooks(): Flow<List<AudioBook>?>
+    fun observeAudioBooks(): Flow<List<AudioBook>?>
     suspend fun refreshAudioBooks()
+    fun searchAudioBooks(searchString: String): Flow<List<AudioBook>?>
 }

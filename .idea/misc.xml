@@ -5,7 +5,10 @@
       <map>
         <entry key="app/src/main/res/drawable/ic_logo_full.xml" value="0.1455" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.125" />
+        <entry key="feature-audio-book-listing/src/main/res/drawable/gradient_upgrade_banner.xml" value="0.2995" />
+        <entry key="feature-audio-book-listing/src/main/res/layout-land/fragment_audio_books_listing.xml" value="0.335" />
         <entry key="feature-audio-book-listing/src/main/res/layout/fragment_audio_books_listing.xml" value="0.11" />
+        <entry key="feature-audio-book-listing/src/main/res/layout/item_ad_book_listing.xml" value="0.2064102564102564" />
         <entry key="feature-audio-book-listing/src/main/res/layout/item_audio_book_listing.xml" value="0.375" />
         <entry key="feature-audio-book-player/src/main/res/drawable/ic_arrow_down.xml" value="0.2255" />
         <entry key="feature-audio-book-player/src/main/res/drawable/ic_arrow_left.xml" value="0.2255" />
@@ -23,7 +26,7 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
