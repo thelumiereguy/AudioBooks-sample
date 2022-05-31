@@ -1,86 +1,47 @@
 package dev.thelumiereguy.data.repo.fake
 
-import android.annotation.SuppressLint
-import dev.thelumiereguy.data.models.Book
+import dev.thelumiereguy.data.models.AudioBook
 import dev.thelumiereguy.data.repo.BookListingRepo
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
 
 class FakeBookListingRepoImpl : BookListingRepo {
 
-    @SuppressLint("ResourceType")
-    val fakeData = listOf(
-        Book(
-            1,
-            "The Black Witch",
-            "Laurie Forest",
-            1,
-            "",
-        ),
-        Book(
-            2,
-            "A Promised Land",
-            "Barrack Obama",
-            2,
-            "",
-        ),
-        Book(
-            3,
-            "Harry Potter and the Prisoner of Azkaban",
-            "J.K. Rowling",
-            3,
-            "",
-        ),
-        Book(
-            4,
-            "The Kidnapper's Accomplice",
-            "C.J. Archer",
-            4,
-            "",
-        ),
-        Book(
-            5,
-            "Light Mage",
-            "Laurie Forest",
-            5,
-            "",
-        ),
-        Book(
-            6,
-            "Sherlock Holmes",
-            "Sir Arthur Conan Doyle",
-            6,
-            "",
-        ),
-        Book(
-            7,
-            "Wuthering Heights",
-            "Emily Brontë",
-            7,
-            "",
-        ),
-        Book(
-            8,
-            "Clean Code",
-            "Robert C. Martin",
-            8,
-            "",
-        ),
-        Book(
-            9,
-            "The Magician's Diary",
-            "C.J. Archer",
-            9,
-            "",
-        ),
-        Book(
-            10,
-            "The Secret",
-            "Rhonda Byrne",
-            10,
-            "",
-        ),
-    )
+    companion object {
+        private val books = listOf(
+            "The Black Witch" to "Laurie Forest",
+            "A Promised Land" to "Barrack Obama",
+            "Harry Potter and the Prisoner of Azkaban" to "J.K. Rowling",
+            "The Kidnapper's Accomplice" to "C.J. Archer",
+            "Light Mage" to "Laurie Forest",
+            "Sherlock Holmes" to "Sir Arthur Conan Doyle",
+            "Wuthering Heights" to "Emily Brontë",
+            "Clean Code" to "Robert C. Martin",
+            "The Magician's Diary" to "C.J. Archer",
+            "The Secret" to "Rhonda Byrne",
+        )
+    }
 
-    override suspend fun fetchBooks(): List<Book> {
-        return fakeData
+    fun getItems(itemCount: Int) = List(itemCount) { index ->
+        val book = books[index % books.size]
+        AudioBook(
+            index.toLong() + 1,
+            book.first,
+            book.second,
+            index + 1,
+            "",
+        )
+    }
+
+    var audiobookListFlow = flowOf(getItems(10))
+
+    override suspend fun observeAudioBooks(): Flow<List<AudioBook>> {
+        return audiobookListFlow
+    }
+
+    override suspend fun refreshAudioBooks() = Unit
+
+    fun reset() {
+        audiobookListFlow = flowOf(getItems(10))
     }
 }

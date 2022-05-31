@@ -18,7 +18,6 @@ class HelperModule {
             override val default = Dispatchers.Default
             override val io = Dispatchers.IO
             override val unconfined = Dispatchers.Unconfined
-
         }
     }
 }

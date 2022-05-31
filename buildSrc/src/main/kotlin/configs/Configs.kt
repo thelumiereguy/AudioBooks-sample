@@ -9,7 +9,6 @@ object Configs {
     const val VersionCode = 1
     const val VersionName = "1.0"
 
-
     val FreeCompilerArgs = listOf(
         "-Xjvm-default=all",
         "-opt-in=kotlin.RequiresOptIn",

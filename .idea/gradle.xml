@@ -17,8 +17,8 @@
             <option value="$PROJECT_DIR$/core/ab-tests" />
             <option value="$PROJECT_DIR$/core/data" />
             <option value="$PROJECT_DIR$/core/ui" />
+            <option value="$PROJECT_DIR$/feature-audio-book-listing" />
             <option value="$PROJECT_DIR$/feature-audio-book-player" />
-            <option value="$PROJECT_DIR$/feature-book-listing" />
             <option value="$PROJECT_DIR$/helpers" />
           </set>
         </option>

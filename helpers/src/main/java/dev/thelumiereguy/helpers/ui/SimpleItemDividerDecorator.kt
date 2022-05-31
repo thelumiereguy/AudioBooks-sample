@@ -31,5 +31,4 @@ class SimpleItemDividerDecorator(
                 outRect.top = 0
         }
     }
-
 }

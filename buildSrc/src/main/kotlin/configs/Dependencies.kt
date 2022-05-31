@@ -1,12 +1,11 @@
 package configs
 
-import configs.extensions.implementation
 import configs.extensions.debugImplementation
+import configs.extensions.implementation
 import configs.extensions.ksp
 import org.gradle.api.artifacts.dsl.DependencyHandler
 
 // Idea from https://proandroiddev.com/avoid-repetitive-dependency-declarations-with-gradle-kotlin-dsl-97c904704727
-
 
 fun DependencyHandler.implementCommonDependencies() {
     implementation(SupportLibraries.CoreKtx)

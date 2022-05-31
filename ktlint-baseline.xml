@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<baseline version="1.0">
+    <file name="app/build.gradle.kts">
+        <error line="1" column="1" source="final-newline" />
+        <error line="85" column="1" source="no-blank-line-before-rbrace" />
+    </file>
+    <file name="app/build/generated/source/navigation-args/debug/dev/thelumiereguy/feature_audio_book_player/ui/AudioBookPlayerFragmentArgs.kt">
+        <error line="10" column="1" source="indent" />
+        <error line="12" column="1" source="indent" />
+        <error line="13" column="1" source="indent" />
+        <error line="14" column="1" source="indent" />
+        <error line="15" column="1" source="indent" />
+        <error line="16" column="1" source="indent" />
+        <error line="18" column="1" source="indent" />
+        <error line="19" column="1" source="indent" />
+        <error line="20" column="1" source="indent" />
+        <error line="21" column="1" source="indent" />
+        <error line="22" column="1" source="indent" />
+        <error line="22" column="25" source="colon-spacing" />
+        <error line="23" column="1" source="indent" />
+        <error line="24" column="1" source="indent" />
+        <error line="25" column="1" source="indent" />
+        <error line="26" column="1" source="indent" />
+        <error line="27" column="1" source="indent" />
+        <error line="28" column="1" source="indent" />
+        <error line="29" column="1" source="indent" />
+        <error line="30" column="1" source="indent" />
+    </file>
+    <file name="app/src/androidTest/java/dev/thelumiereguy/audiobooks_sample/ExampleInstrumentedTest.kt">
+        <error line="1" column="1" source="final-newline" />
+        <error line="3" column="1" source="import-ordering" />
+        <error line="9" column="1" source="no-wildcard-imports" />
+    </file>
+    <file name="app/src/main/java/dev/thelumiereguy/audiobooks_sample/AudioBooksSampleApp.kt">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="app/src/main/java/dev/thelumiereguy/audiobooks_sample/MainActivity.kt">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="buildSrc/src/main/kotlin/configs/Configs.kt">
+        <error line="1" column="1" source="final-newline" />
+        <error line="12" column="1" source="no-consecutive-blank-lines" />
+    </file>
+    <file name="buildSrc/src/main/kotlin/configs/Dependencies.kt">
+        <error line="1" column="1" source="final-newline" />
+        <error line="3" column="1" source="import-ordering" />
+        <error line="10" column="1" source="no-consecutive-blank-lines" />
+    </file>
+    <file name="buildSrc/src/main/kotlin/configs/Versions.kt">
+        <error line="6" column="1" source="no-consecutive-blank-lines" />
+        <error line="13" column="1" source="no-consecutive-blank-lines" />
+        <error line="27" column="1" source="no-blank-line-before-rbrace" />
+        <error line="47" column="1" source="no-consecutive-blank-lines" />
+    </file>
+    <file name="buildSrc/src/main/kotlin/configs/extensions/GradleExtensions.kt">
+        <error line="66" column="1" source="no-consecutive-blank-lines" />
+    </file>
+    <file name="core/ab-tests/build.gradle.kts">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="core/ab-tests/src/androidTest/java/dev/thelumiereguy/ab_tests/ExampleInstrumentedTest.kt">
+        <error line="1" column="1" source="final-newline" />
+        <error line="3" column="1" source="import-ordering" />
+        <error line="9" column="1" source="no-wildcard-imports" />
+    </file>
+    <file name="core/ab-tests/src/main/java/dev/thelumiereguy/ab_tests/ExperimentBucket.kt">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="core/ab-tests/src/test/java/dev/thelumiereguy/ab_tests/ExampleUnitTest.kt">
+        <error line="1" column="1" source="final-newline" />
+        <error line="3" column="1" source="import-ordering" />
+        <error line="5" column="1" source="no-wildcard-imports" />
+    </file>
+    <file name="core/build.gradle.kts">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="core/data/build.gradle.kts">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="core/data/src/androidTest/java/dev/thelumiereguy/data/ExampleInstrumentedTest.kt">
+        <error line="1" column="1" source="final-newline" />
+        <error line="3" column="1" source="import-ordering" />
+        <error line="9" column="1" source="no-wildcard-imports" />
+    </file>
+    <file name="core/data/src/main/java/dev/thelumiereguy/data/di/BookListingDataModule.kt">
+        <error line="1" column="1" source="final-newline" />
+        <error line="4" column="1" source="no-unused-imports" />
+        <error line="6" column="1" source="no-unused-imports" />
+        <error line="7" column="1" source="no-unused-imports" />
+        <error line="23" column="1" source="no-consecutive-blank-lines" />
+    </file>
+    <file name="core/data/src/main/java/dev/thelumiereguy/data/local/AudioBookDatabase.kt">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="core/data/src/main/java/dev/thelumiereguy/data/local/dao/AudioBookDao.kt">
+        <error line="1" column="1" source="final-newline" />
+        <error line="21" column="1" source="no-blank-line-before-rbrace" />
+    </file>
+    <file name="core/data/src/main/java/dev/thelumiereguy/data/local/mapper/mapResponseToEntity.kt">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="core/data/src/main/java/dev/thelumiereguy/data/local/models/AudioBookEntity.kt">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="core/data/src/main/java/dev/thelumiereguy/data/mapper/BookCoverToDrawableMapper.kt">
+        <error line="1" column="1" source="final-newline" />
+        <error line="28" column="1" source="no-consecutive-blank-lines" />
+    </file>
+    <file name="core/data/src/main/java/dev/thelumiereguy/data/network/GetBooksApi.kt">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="core/data/src/main/java/dev/thelumiereguy/data/network/GetBooksApiImpl.kt">
+        <error line="1" column="1" source="final-newline" />
+        <error line="3" column="1" source="import-ordering" />
+    </file>
+    <file name="core/data/src/main/java/dev/thelumiereguy/data/network/models/GetBookResponse.kt">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="core/data/src/main/java/dev/thelumiereguy/data/repo/BookListingRepo.kt">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="core/data/src/main/java/dev/thelumiereguy/data/repo/BookListingRepoImpl.kt">
+        <error line="1" column="1" source="final-newline" />
+        <error line="3" column="1" source="import-ordering" />
+        <error line="11" column="1" source="no-wildcard-imports" />
+        <error line="12" column="1" source="no-wildcard-imports" />
+    </file>
+    <file name="core/data/src/main/java/dev/thelumiereguy/data/repo/fake/FakeBookListingRepoImpl.kt">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="core/ui/build.gradle.kts">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="feature-audio-book-listing/build.gradle.kts">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="feature-audio-book-listing/src/main/java/dev/thelumiereguy/feature_book_listing/presentation/adapter/ListItems.kt">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="feature-audio-book-listing/src/main/java/dev/thelumiereguy/feature_book_listing/presentation/adapter/adapter_delegates/AdItemDelegate.kt">
+        <error line="23" column="1" source="no-blank-line-before-rbrace" />
+        <error line="26" column="1" source="no-consecutive-blank-lines" />
+    </file>
+    <file name="feature-audio-book-listing/src/main/java/dev/thelumiereguy/feature_book_listing/presentation/adapter/adapter_delegates/BookItemDelegate.kt">
+        <error line="34" column="1" source="no-consecutive-blank-lines" />
+    </file>
+    <file name="feature-audio-book-listing/src/main/java/dev/thelumiereguy/feature_book_listing/presentation/ui/AudioBooksListingFragment.kt">
+        <error line="1" column="1" source="final-newline" />
+        <error line="3" column="1" source="import-ordering" />
+        <error line="11" column="1" source="no-unused-imports" />
+        <error line="43" column="1" source="no-blank-line-before-rbrace" />
+        <error line="103" column="52" source="parameter-list-wrapping" />
+    </file>
+    <file name="feature-audio-book-listing/src/main/java/dev/thelumiereguy/feature_book_listing/presentation/viewmodel/AudioBooksListingViewModel.kt">
+        <error line="1" column="1" source="final-newline" />
+        <error line="3" column="1" source="import-ordering" />
+        <error line="17" column="1" source="no-wildcard-imports" />
+    </file>
+    <file name="feature-audio-book-listing/src/test/java/dev/thelumiereguy/feature_book_listing/presentation/viewmodel/AudioBooksListingViewModelTest.kt">
+        <error line="1" column="1" source="final-newline" />
+        <error line="3" column="1" source="import-ordering" />
+        <error line="17" column="1" source="no-wildcard-imports" />
+        <error line="99" column="1" source="no-consecutive-blank-lines" />
+        <error line="112" column="1" source="indent" />
+        <error line="112" column="29" source="chain-wrapping" />
+        <error line="113" column="1" source="indent" />
+        <error line="113" column="29" source="chain-wrapping" />
+        <error line="127" column="1" source="no-consecutive-blank-lines" />
+        <error line="144" column="1" source="indent" />
+        <error line="144" column="29" source="chain-wrapping" />
+        <error line="145" column="1" source="indent" />
+        <error line="145" column="29" source="chain-wrapping" />
+        <error line="146" column="1" source="indent" />
+        <error line="146" column="29" source="chain-wrapping" />
+        <error line="147" column="1" source="indent" />
+        <error line="147" column="29" source="chain-wrapping" />
+    </file>
+    <file name="feature-audio-book-player/build.gradle.kts">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="feature-audio-book-player/src/androidTest/java/dev/thelumiereguy/feature_audio_book_player/ExampleInstrumentedTest.kt">
+        <error line="1" column="1" source="final-newline" />
+        <error line="3" column="1" source="import-ordering" />
+        <error line="9" column="1" source="no-wildcard-imports" />
+    </file>
+    <file name="feature-audio-book-player/src/main/java/dev/thelumiereguy/feature_audio_book_player/ui/AudioBookPlayerFragment.kt">
+        <error line="1" column="1" source="final-newline" />
+        <error line="22" column="1" source="no-consecutive-blank-lines" />
+        <error line="31" column="1" source="no-blank-line-before-rbrace" />
+        <error line="70" column="50" source="parameter-list-wrapping" />
+    </file>
+    <file name="feature-audio-book-player/src/main/java/dev/thelumiereguy/feature_audio_book_player/viewmodel/AudioBookPlayerViewModel.kt">
+        <error line="1" column="1" source="final-newline" />
+        <error line="5" column="46" source="no-empty-class-body" />
+        <error line="6" column="1" source="no-blank-line-before-rbrace" />
+    </file>
+    <file name="feature-audio-book-player/src/test/java/dev/thelumiereguy/feature_audio_book_player/ExampleUnitTest.kt">
+        <error line="1" column="1" source="final-newline" />
+        <error line="3" column="1" source="import-ordering" />
+        <error line="5" column="1" source="no-wildcard-imports" />
+    </file>
+    <file name="helpers/build.gradle.kts">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="helpers/src/main/java/dev/thelumiereguy/helpers/di/HelperModule.kt">
+        <error line="1" column="1" source="final-newline" />
+        <error line="21" column="1" source="no-blank-line-before-rbrace" />
+    </file>
+    <file name="helpers/src/main/java/dev/thelumiereguy/helpers/framework/DispatcherProvider.kt">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="helpers/src/main/java/dev/thelumiereguy/helpers/ui/SimpleItemDividerDecorator.kt">
+        <error line="1" column="1" source="final-newline" />
+        <error line="34" column="1" source="no-blank-line-before-rbrace" />
+    </file>
+    <file name="helpers/src/main/java/dev/thelumiereguy/helpers/ui/adapter/BaseDelegateAdapter.kt">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="helpers/src/main/java/dev/thelumiereguy/helpers/ui/adapter/BaseDiffUtilCallback.kt">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+    <file name="helpers/src/main/java/dev/thelumiereguy/helpers/ui/adapter/BaseListItem.kt">
+        <error line="1" column="1" source="final-newline" />
+    </file>
+</baseline>

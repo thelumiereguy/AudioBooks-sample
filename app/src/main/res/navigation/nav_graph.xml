@@ -3,25 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/audio_book_list_fragment">
+    app:startDestination="@id/audio_book_player_fragment">
 
     <fragment
         android:id="@+id/audio_book_list_fragment"
         android:name="dev.thelumiereguy.feature_book_listing.presentation.ui.AudioBooksListingFragment"
         android:label="Home"
         tools:layout="@layout/fragment_audio_books_listing">
-
+<!--        <action-->
+<!--            android:id="@+id/action_audio_book_list_fragment_to_audio_book_player_fragment"-->
+<!--            app:destination="@id/audio_book_player_fragment"-->
+<!--            app:enterAnim="@anim/nav_default_enter_anim"-->
+<!--            app:exitAnim="@anim/nav_default_enter_anim"-->
+<!--            app:popEnterAnim="@anim/nav_default_pop_enter_anim"-->
+<!--            app:popExitAnim="@anim/nav_default_pop_exit_anim" />-->
     </fragment>
 
 
-<!--    <fragment-->
-<!--        android:id="@+id/new_todo_item_fragment"-->
-<!--        android:name="com.linecorp.clientexam.todo.NewTodoItemFragment"-->
-<!--        android:label="@string/new_todo_item_fragment_label"-->
-<!--        tools:layout="@layout/new_todo_item_fragment">-->
-<!--        <argument-->
-<!--            android:name="newItemId"-->
-<!--            app:argType="integer"-->
-<!--            app:nullable="false" />-->
-<!--    </fragment>-->
+    <fragment
+        android:id="@+id/audio_book_player_fragment"
+        android:name="dev.thelumiereguy.feature_audio_book_player.ui.AudioBookPlayerFragment"
+        android:label="Player"
+        tools:layout="@layout/fragment_audio_book_player">
+        <argument
+            android:name="audioBookId"
+            app:argType="long"
+            app:nullable="false" />
+    </fragment>
 </navigation>

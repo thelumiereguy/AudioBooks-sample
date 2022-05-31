@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:paddingStart="28dp"
+    android:paddingTop="28dp"
+    android:paddingEnd="28dp">
+
+    <ImageView
+        android:id="@+id/ivDropDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_arrow_down"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBookName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvBookName" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvBookName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:paddingHorizontal="16dp"
+        android:text="Harry Potter and the Prisoner of Azkaban"
+        android:textColor="#2E2E5D"
+        android:textSize="16sp"
+        app:fontFamily="@font/poppins_medium"
+        app:layout_constraintBottom_toTopOf="@+id/cardBookCover"
+        app:layout_constraintEnd_toStartOf="@id/ivMenu"
+        app:layout_constraintStart_toEndOf="@id/ivDropDown"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_more_square"
+        app:layout_constraintBottom_toBottomOf="@+id/tvBookName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvBookName" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardBookCover"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="28dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="16dp"
+        app:layout_constraintBottom_toTopOf="@id/tvBookTitle"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBookName">
+
+        <ImageView
+            android:id="@+id/ivBookCover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:background="?attr/colorPrimary" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvBookTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="44dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingEnd="25dp"
+        android:text="Harry Potter and the Prisoner of Azkaban"
+        android:textColor="#010104"
+        android:textSize="20sp"
+        app:fontFamily="@font/poppins_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardBookCover" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvAuthorName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="J.K. Rowling"
+        android:textColor="#80010104"
+        android:textSize="16sp"
+        app:fontFamily="@font/poppins_regular"
+        app:layout_constraintStart_toStartOf="@+id/tvBookTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvBookTitle" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:max="100"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="0dp"
+        android:progressBackgroundTint="#AA6FF2"
+        android:progressBackgroundTintMode="add"
+        android:progressTint="#FF3700B3"
+        android:thumbTint="#FF3700B3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAuthorName"
+        tools:progress="40" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvCurrentTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:paddingStart="14dp"
+        android:text="12.15"
+        android:textColor="#BBB1FA"
+        android:textSize="10sp"
+        app:fontFamily="@font/poppins_regular"
+        app:layout_constraintStart_toStartOf="@+id/seekBar"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvEndTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:paddingEnd="14dp"
+        android:text="47.32"
+        android:textColor="#BBB1FA"
+        android:textSize="10sp"
+        app:fontFamily="@font/poppins_regular"
+        app:layout_constraintEnd_toEndOf="@+id/seekBar"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+    <ImageView
+        android:id="@+id/ivVolumeUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_volume_up"
+        app:layout_constraintBottom_toBottomOf="@+id/ivArrowLeft"
+        app:layout_constraintEnd_toStartOf="@+id/ivArrowLeft"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivArrowLeft" />
+
+    <ImageView
+        android:id="@+id/ivArrowLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_arrow_left"
+        app:layout_constraintBottom_toBottomOf="@+id/ivPlay"
+        app:layout_constraintEnd_toStartOf="@+id/ivPlay"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toEndOf="@+id/ivVolumeUp"
+        app:layout_constraintTop_toTopOf="@+id/ivPlay" />
+
+    <ImageView
+        android:id="@+id/ivPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_play"
+        app:layout_constraintBottom_toTopOf="@+id/tvChapter"
+        app:layout_constraintEnd_toStartOf="@+id/ivArrowRight"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toEndOf="@+id/ivArrowLeft"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+    <ImageView
+        android:id="@+id/ivArrowRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_arrow_right"
+        app:layout_constraintBottom_toBottomOf="@+id/ivPlay"
+        app:layout_constraintEnd_toStartOf="@+id/ivUpload"
+        app:layout_constraintStart_toEndOf="@+id/ivPlay"
+        app:layout_constraintTop_toTopOf="@+id/ivPlay" />
+
+    <ImageView
+        android:id="@+id/ivUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_upload"
+        app:layout_constraintBottom_toBottomOf="@+id/ivArrowRight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivArrowRight"
+        app:layout_constraintTop_toTopOf="@+id/ivArrowRight" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvBookMark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingHorizontal="2dp"
+        android:paddingTop="4dp"
+        android:text="@string/bookmark"
+        android:textColor="#2E2E5D"
+        android:textSize="10sp"
+        app:drawableTopCompat="@drawable/ic_bookmark"
+        app:fontFamily="@font/poppins_regular"
+        app:layout_constraintBottom_toBottomOf="@id/bottomGuideline"
+        app:layout_constraintEnd_toStartOf="@+id/tvChapter"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvChapter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingHorizontal="2dp"
+        android:paddingTop="4dp"
+        android:text="@string/chapter_2"
+        android:textColor="#2E2E5D"
+        android:textSize="10sp"
+        app:drawableTopCompat="@drawable/ic_chapter"
+        app:fontFamily="@font/poppins_regular"
+        app:layout_constraintBottom_toBottomOf="@id/bottomGuideline"
+        app:layout_constraintEnd_toStartOf="@+id/tvSpeed"
+        app:layout_constraintStart_toEndOf="@+id/tvBookMark" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingHorizontal="2dp"
+        android:paddingTop="4dp"
+        android:text="@string/speed_10x"
+        android:textColor="#2E2E5D"
+        android:textSize="10sp"
+        app:drawableTopCompat="@drawable/ic_time"
+        app:fontFamily="@font/poppins_regular"
+        app:layout_constraintBottom_toBottomOf="@id/bottomGuideline"
+        app:layout_constraintEnd_toStartOf="@+id/tvDownload"
+        app:layout_constraintStart_toEndOf="@+id/tvChapter" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDownload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingHorizontal="2dp"
+        android:paddingTop="4dp"
+        android:text="@string/download"
+        android:textColor="#2E2E5D"
+        android:textSize="10sp"
+        app:drawableTopCompat="@drawable/ic_download"
+        app:fontFamily="@font/poppins_regular"
+        app:layout_constraintBottom_toBottomOf="@id/bottomGuideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvSpeed" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottomGuideline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.98" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="tvChapter,ivDropDown,tvCurrentTime,ivVolumeUp,ivUpload,tvBookMark,tvEndTime,tvSpeed,ivArrowRight,tvBookTitle,cardBookCover,ivPlay,tvBookName,tvDownload,seekBar,ivArrowLeft,tvAuthorName,ivMenu"
+        tools:visibility="visible" />
+
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:indeterminateTint="?attr/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

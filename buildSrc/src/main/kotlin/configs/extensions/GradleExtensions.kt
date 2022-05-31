@@ -63,7 +63,6 @@ fun DependencyHandler.kapt(dependencyNotation: Any): Dependency? =
 fun DependencyHandler.testImplementation(dependencyNotation: Any): Dependency? =
     add("testImplementation", dependencyNotation)
 
-
 /**
  * Adds a dependency to the `androidTestImplementation` configuration.
  *

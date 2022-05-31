@@ -7,6 +7,7 @@ plugins {
     id("org.jetbrains.kotlin.kapt")
     id("com.google.devtools.ksp")
     id("dagger.hilt.android.plugin")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -59,7 +60,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature-book-listing"))
+    implementation(project(":feature-audio-book-listing"))
+    implementation(project(":feature-audio-book-player"))
     implementCommonDependencies()
     implementation("com.google.android.material:material:1.6.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
@@ -80,5 +82,4 @@ dependencies {
     val nav_version = "2.4.2"
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
-
 }

@@ -25,7 +25,6 @@ class BookCoverToDrawableMapper @Inject constructor() {
         }
     }
 
-
     companion object {
         private const val theBlackWitch = "The Black Witch"
         private const val aPromisedLand = "A Promised Land"

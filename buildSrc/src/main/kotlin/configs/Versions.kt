@@ -3,13 +3,11 @@ package configs
 object Versions {
     const val Compose = "1.2.0-alpha08"
 
-
     const val CoreKtx = "1.7.0"
     const val AppCompat = "1.4.1"
     const val LifeCycleRuntime = "2.4.1"
     const val Activity = "1.4.0"
     const val Splash = "1.0.0-beta02"
-
 
     const val Coroutines = "1.6.1"
 }
@@ -24,7 +22,6 @@ object SupportLibraries {
         "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LifeCycleRuntime}"
     const val ActivityKtx = "androidx.activity:activity-ktx:${Versions.Activity}"
     const val Splashscreen = "androidx.core:core-splashscreen:${Versions.Splash}"
-
 }
 
 object ComposeLibraries {
@@ -43,7 +40,6 @@ object ComposeLibraries {
     const val ViewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
     const val Coil = "io.coil-kt:coil-compose:2.0.0-rc02"
 }
-
 
 object NavigationLib {
     const val Navigation = "androidx.navigation:navigation-compose:2.4.2"

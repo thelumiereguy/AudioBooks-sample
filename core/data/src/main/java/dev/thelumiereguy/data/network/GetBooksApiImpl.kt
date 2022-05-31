@@ -3,10 +3,10 @@ package dev.thelumiereguy.data.network
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.thelumiereguy.data.network.models.GetBookResponse
+import kotlinx.serialization.json.Json
 import java.io.IOException
 import java.nio.charset.Charset
 import javax.inject.Inject
-import kotlinx.serialization.json.Json
 
 class GetBooksApiImpl @Inject constructor(
     @ApplicationContext private val context: Context
