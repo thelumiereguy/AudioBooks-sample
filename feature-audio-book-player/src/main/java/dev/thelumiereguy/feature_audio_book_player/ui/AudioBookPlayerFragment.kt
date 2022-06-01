@@ -56,6 +56,7 @@ class AudioBookPlayerFragment : Fragment(R.layout.fragment_audio_book_player) {
             })
         }
 
+        // Artificial delay
         Handler(Looper.getMainLooper()).postDelayed(500) {
             viewModel.setAudioBookDetails(
                 requireArguments().getLong(BOOK_ID)

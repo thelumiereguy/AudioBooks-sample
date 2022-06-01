@@ -34,7 +34,8 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_11.toString()
+        freeCompilerArgs = configs.Configs.FreeCompilerArgs
     }
     buildFeatures {
         viewBinding = true
@@ -63,13 +64,15 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.4.1")
+
     implementation("androidx.fragment:fragment-ktx:1.4.1")
-    implementation("com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.2")
-    implementation("com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.2")
+
     implementation("com.github.bumptech.glide:glide:4.12.0")
 
     testImplementation(kotlin("test"))
+
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.2")
+
     testImplementation("org.junit.jupiter:junit-jupiter")
 
     testImplementation("io.mockk:mockk:1.12.2")

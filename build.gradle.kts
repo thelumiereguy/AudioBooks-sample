@@ -1,6 +1,6 @@
 buildscript {
     dependencies {
-        classpath("com.android.tools.build:gradle:7.1.3")
+        classpath("com.android.tools.build:gradle:7.2.1")
         classpath("com.google.dagger:hilt-android-gradle-plugin:2.41")
         classpath(kotlin("serialization", version = "1.6.20"))
     }
@@ -9,7 +9,7 @@ buildscript {
 plugins {
     id("com.google.devtools.ksp") version "1.6.20-1.0.5" apply false
     id("org.jetbrains.kotlin.jvm") version "1.6.20" apply false
-    id("com.android.library") version "7.1.3" apply false
+    id("com.android.library") version "7.2.1" apply false
     id("org.jetbrains.kotlin.android") version "1.6.20" apply false
     id("org.jlleitschuh.gradle.ktlint") version "10.3.0"
 }

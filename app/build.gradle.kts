@@ -10,15 +10,6 @@ plugins {
 }
 
 android {
-    signingConfigs {
-        create("release") {
-            storeFile =
-                file("/Users/piyushpratheep/AndroidStudioProjects/AudioBookssample/audio_book_sample.jks")
-            storePassword = "audio_book_sample"
-            keyAlias = "audio_book_sample"
-            keyPassword = "audio_book_sample"
-        }
-    }
     compileSdk = configs.Configs.CompileSdk
     namespace = configs.Configs.ApplicationId
     defaultConfig {
@@ -37,6 +28,7 @@ android {
         }
         release {
             isMinifyEnabled = true
+            isCrunchPngs = true
             isShrinkResources = true
             isDebuggable = false
             proguardFiles(
@@ -53,9 +45,6 @@ android {
         jvmTarget = JavaVersion.VERSION_11.toString()
         freeCompilerArgs = configs.Configs.FreeCompilerArgs
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
 }
 
 dependencies {
@@ -65,17 +54,9 @@ dependencies {
     implementation("com.google.android.material:material:1.6.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation(configs.SupportLibraries.Splashscreen)
-    implementation(configs.Utilities.Timber)
 
     implementation(configs.DaggerHiltLib.Android)
     kapt(configs.DaggerHiltLib.Compiler)
 
-    implementation("androidx.startup:startup-runtime:1.1.1")
-    debugImplementation("com.squareup.leakcanary:leakcanary-android:2.9.1")
-    implementation("com.github.thelumiereguy:CrashWatcher-Android:2.0.2")
-
-    val nav_version = "2.4.2"
-
-    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
-    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+//    debugImplementation("com.squareup.leakcanary:leakcanary-android:2.9.1")
 }

@@ -25,25 +25,26 @@ class BookListingRepoImpl @Inject constructor(
         return audioBookDao.getAudioBooksFlow()
             .map { audioBookList ->
                 audioBookList?.map { bookModel ->
-                    bookModel.mapBookEntityToDomainModel()
+                    bookModel.mapBookEntityToDomainModel(bookCoverToDrawableMapper)
                 }
             }.flowOn(dispatcherProvider.io)
     }
 
     override fun getAudioBookDetails(bookId: Long): LiveData<AudioBook?> {
         return audioBookDao.findAudioBook(bookId).map {
-            it?.mapBookEntityToDomainModel()
+            it?.mapBookEntityToDomainModel(bookCoverToDrawableMapper)
         }
     }
 
     override suspend fun refreshAudioBooks() {
         supervisorScope {
             withContext(dispatcherProvider.io) {
-                delay(500)
+                // Artificial delay
+                delay(100)
                 try {
                     val response = booksApi.getBooks()
                     val audioBooksEntityList = response.data.books
-                        .mapResponseToEntity(bookCoverToDrawableMapper)
+                        .mapResponseToEntity()
                     audioBookDao.insert(audioBooksEntityList)
                 } catch (exception: IOException) {
                     exception.printStackTrace()
@@ -56,7 +57,7 @@ class BookListingRepoImpl @Inject constructor(
         return audioBookDao.selectAudioBooks(searchString)
             .map { audioBookList ->
                 audioBookList?.map { bookModel ->
-                    bookModel.mapBookEntityToDomainModel()
+                    bookModel.mapBookEntityToDomainModel(bookCoverToDrawableMapper)
                 }
             }.flowOn(dispatcherProvider.io)
     }

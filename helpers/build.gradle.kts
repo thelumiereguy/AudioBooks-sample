@@ -33,17 +33,23 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_11.toString()
+        freeCompilerArgs = configs.Configs.FreeCompilerArgs
     }
 }
 
 dependencies {
+
     implementation("androidx.core:core-ktx:1.7.0")
+
     implementation("androidx.appcompat:appcompat:1.4.1")
+
     implementation(configs.DaggerHiltLib.Android)
     kapt(configs.DaggerHiltLib.Compiler)
     implementation(configs.SupportLibraries.CoroutineCore)
     implementation(configs.SupportLibraries.CoroutineAndroid)
+
     implementation("androidx.recyclerview:recyclerview:1.2.1")
+
     implementation("com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.2")
 }

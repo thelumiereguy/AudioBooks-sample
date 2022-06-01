@@ -82,7 +82,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:paddingTop="16dp"
-            android:paddingBottom="24dp"
+            android:paddingBottom="56dp"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
