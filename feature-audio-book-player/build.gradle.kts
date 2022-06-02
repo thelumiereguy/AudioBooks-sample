@@ -1,5 +1,4 @@
 import configs.extensions.implementation
-import configs.implementCommonDependencies
 
 plugins {
     id("com.android.library")
@@ -42,6 +41,8 @@ android {
         viewBinding = true
     }
     testOptions {
+        unitTests.isIncludeAndroidResources = true
+        unitTests.isReturnDefaultValues = true
         unitTests.all {
             it.useJUnitPlatform()
         }
@@ -49,7 +50,6 @@ android {
 }
 
 dependencies {
-    implementCommonDependencies()
 
     implementation(configs.DaggerHiltLib.Android)
     kapt(configs.DaggerHiltLib.Compiler)
@@ -57,10 +57,11 @@ dependencies {
     implementation(project(":core:ui"))
     implementation(project(":core:data"))
     implementation(project(":core:ab-tests"))
-    implementation(project(":helpers"))
 
     implementation(configs.SupportLibraries.CoreKtx)
     implementation(configs.SupportLibraries.Appcompat)
+    implementation(configs.SupportLibraries.LifecycleRuntime)
+
     implementation(configs.UILibraries.Material)
 
     implementation(configs.SupportLibraries.LifecycleLivedata)
@@ -78,4 +79,6 @@ dependencies {
     testImplementation(configs.TestUtils.JupiterJunit)
 
     testImplementation(configs.TestUtils.MockK)
+
+    testImplementation(configs.SupportLibraries.ArchTesting)
 }

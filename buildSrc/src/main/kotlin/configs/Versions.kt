@@ -1,6 +1,7 @@
 package configs
 
 object Versions {
+    const val SlidingPanelLayout = "1.2.0"
     const val MockK = "1.12.2"
     const val Glide = "4.12.0"
     const val RecyclerView = "1.2.1"
@@ -12,6 +13,7 @@ object Versions {
     const val CoreKtx = "1.7.0"
     const val AppCompat = "1.4.1"
     const val LifeCycleRuntime = "2.4.1"
+    const val ArchTesting = "2.1.0"
     const val Activity = "1.4.0"
     const val Fragment = "1.4.1"
 
@@ -35,9 +37,14 @@ object SupportLibraries {
         "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.LifeCycleRuntime}"
     const val ActivityKtx = "androidx.activity:activity-ktx:${Versions.Activity}"
     const val FragmentKtx = "androidx.fragment:fragment-ktx:${Versions.Fragment}"
+
+    const val ArchTesting = "androidx.arch.core:core-testing:${Versions.ArchTesting}"
 }
 
 object UILibraries {
+    const val SlidePanelLayout =
+        "androidx.slidingpanelayout:slidingpanelayout:${Versions.SlidingPanelLayout}"
+
     const val ConstraintLayout =
         "androidx.constraintlayout:constraintlayout:${Versions.ConstraintLayout}"
     const val Material = "com.google.android.material:material:${Versions.MaterialDesign}"

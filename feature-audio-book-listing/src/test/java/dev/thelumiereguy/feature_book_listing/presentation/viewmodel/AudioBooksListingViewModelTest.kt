@@ -13,16 +13,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.*
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
-import kotlin.test.AfterTest
 import kotlin.test.assertEquals
 
 internal class AudioBooksListingViewModelTest {
 
     private lateinit var viewModel: AudioBooksListingViewModel
-
-    private lateinit var testDispatcher: TestDispatcher
 
     private lateinit var dispatcherProvider: DispatcherProvider
 
@@ -35,7 +33,7 @@ internal class AudioBooksListingViewModelTest {
     @Nested
     inner class OldExperiment {
 
-        @AfterTest
+        @AfterEach
         fun after() {
             Dispatchers.resetMain()
         }
@@ -94,7 +92,7 @@ internal class AudioBooksListingViewModelTest {
     @Nested
     inner class NewUpgradeBannerExperiment {
 
-        @AfterTest
+        @AfterEach
         fun after() {
             fakeRepo.reset()
             Dispatchers.resetMain()
@@ -168,7 +166,7 @@ internal class AudioBooksListingViewModelTest {
     @Nested
     inner class SearchingLogic {
 
-        @AfterTest
+        @AfterEach
         fun after() {
             Dispatchers.resetMain()
         }
@@ -257,7 +255,7 @@ internal class AudioBooksListingViewModelTest {
     }
 
     private fun TestScope.initDispatchers(upgradeBannerExperiment: ExperimentBucket) {
-        testDispatcher = StandardTestDispatcher(testScheduler)
+        val testDispatcher = StandardTestDispatcher(testScheduler)
 
         dispatcherProvider = object : DispatcherProvider {
             override val main: CoroutineDispatcher = testDispatcher

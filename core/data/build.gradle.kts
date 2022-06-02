@@ -1,5 +1,4 @@
 import configs.extensions.implementation
-import configs.implementCommonDependencies
 
 plugins {
     id("com.android.library")
@@ -43,11 +42,14 @@ android {
 }
 
 dependencies {
-    implementCommonDependencies()
+
+    implementation(configs.Coroutines.CoroutineCore)
+    implementation(configs.Coroutines.CoroutineAndroid)
+
     implementation(configs.DaggerHiltLib.Android)
     kapt(configs.DaggerHiltLib.Compiler)
 
-    implementation(project(":helpers"))
+    api(project(":helpers"))
 
     implementation(configs.Utilities.KotlinXSerializationJson)
     implementation(configs.SupportLibraries.CoreKtx)

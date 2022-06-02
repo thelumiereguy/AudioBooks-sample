@@ -12,12 +12,12 @@ import dev.thelumiereguy.feature_book_listing.presentation.adapter.BookItem
 import dev.thelumiereguy.feature_book_listing.presentation.adapter.UpgradeToBannerItem
 import dev.thelumiereguy.helpers.framework.DispatcherProvider
 import dev.thelumiereguy.helpers.ui.adapter.BaseListItem
+import javax.inject.Inject
+import javax.inject.Named
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
-import javax.inject.Named
 
 @HiltViewModel
 class AudioBooksListingViewModel @Inject constructor(

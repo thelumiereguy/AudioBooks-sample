@@ -24,8 +24,8 @@ import dev.thelumiereguy.feature_book_listing.presentation.viewmodel.UIEvent
 import dev.thelumiereguy.feature_book_listing.presentation.viewmodel.UIState
 import dev.thelumiereguy.helpers.ui.SimpleItemDividerDecorator
 import dev.thelumiereguy.helpers.ui.toDp
-import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class AudioBooksListingFragment : Fragment(R.layout.fragment_audio_books_listing) {

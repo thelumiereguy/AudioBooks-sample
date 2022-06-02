@@ -1,5 +1,4 @@
 import configs.extensions.implementation
-import configs.implementCommonDependencies
 
 plugins {
     id("com.android.library")
@@ -50,7 +49,6 @@ android {
 }
 
 dependencies {
-    implementCommonDependencies()
 
     implementation(configs.DaggerHiltLib.Android)
     kapt(configs.DaggerHiltLib.Compiler)
@@ -58,13 +56,14 @@ dependencies {
     implementation(project(":core:ui"))
     implementation(project(":core:data"))
     implementation(project(":core:ab-tests"))
-    implementation(project(":helpers"))
 
     implementation(configs.SupportLibraries.CoreKtx)
     implementation(configs.SupportLibraries.Appcompat)
-    implementation(configs.UILibraries.Material)
+    implementation(configs.SupportLibraries.LifecycleRuntime)
 
-    implementation(configs.SupportLibraries.LifecycleLivedata)
+    implementation(configs.UILibraries.Material)
+    implementation(configs.UILibraries.SlidePanelLayout)
+
     implementation(configs.SupportLibraries.LifecycleViewModel)
     implementation(configs.SupportLibraries.LifecycleViewModelSavedState)
 
