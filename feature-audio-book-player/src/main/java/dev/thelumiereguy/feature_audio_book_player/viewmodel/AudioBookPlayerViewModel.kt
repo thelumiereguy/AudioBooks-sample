@@ -4,9 +4,8 @@ import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.thelumiereguy.data.repo.BookListingRepo
 import dev.thelumiereguy.helpers.framework.DispatcherProvider
-import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlinx.coroutines.launch
 
 @HiltViewModel
 class AudioBookPlayerViewModel @Inject constructor(

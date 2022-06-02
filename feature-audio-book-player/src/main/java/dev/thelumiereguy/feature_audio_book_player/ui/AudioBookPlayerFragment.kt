@@ -1,6 +1,5 @@
 package dev.thelumiereguy.feature_audio_book_player.ui
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -25,7 +24,6 @@ import dev.thelumiereguy.feature_audio_book_player.R
 import dev.thelumiereguy.feature_audio_book_player.databinding.FragmentAudioBookPlayerBinding
 import dev.thelumiereguy.feature_audio_book_player.viewmodel.AudioBookPlayerViewModel
 import dev.thelumiereguy.feature_audio_book_player.viewmodel.UIState
-import java.lang.Math.abs
 
 @AndroidEntryPoint
 class AudioBookPlayerFragment : Fragment(R.layout.fragment_audio_book_player) {
@@ -167,7 +165,6 @@ class AudioBookPlayerFragment : Fragment(R.layout.fragment_audio_book_player) {
     override fun onResume() {
         super.onResume()
         viewBinding?.tvBookName?.setOnTouchListener(dragDownTouchListener)
-
     }
 
     override fun onPause() {
