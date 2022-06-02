@@ -1,7 +1,5 @@
 package dev.thelumiereguy.data.repo.fake
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import dev.thelumiereguy.data.models.AudioBook
 import dev.thelumiereguy.data.repo.BookListingRepo
 import kotlinx.coroutines.flow.Flow
@@ -42,8 +40,8 @@ class FakeBookListingRepoImpl : BookListingRepo {
         return audiobookListFlow
     }
 
-    override fun getAudioBookDetails(bookId: Long): LiveData<AudioBook?> {
-        return MutableLiveData(getItems(10).find { it.bookId == bookId })
+    override fun getAudioBookDetails(bookId: Long): Flow<AudioBook?> {
+        return flowOf(getItems(10).find { it.bookId == bookId })
     }
 
     override suspend fun refreshAudioBooks() = Unit

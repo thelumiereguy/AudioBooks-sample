@@ -1,4 +1,4 @@
-import configs.implementCommonDependencies
+import configs.extensions.implementation
 
 plugins {
     id("com.android.application")
@@ -11,9 +11,9 @@ plugins {
 
 android {
     compileSdk = configs.Configs.CompileSdk
-    namespace = configs.Configs.ApplicationId
+    namespace = "dev.thelumiereguy.audiobooks_sample"
     defaultConfig {
-        applicationId = configs.Configs.ApplicationId
+        applicationId = "dev.thelumiereguy.audiobooks_sample"
         minSdk = configs.Configs.MinSdk
         targetSdk = configs.Configs.TargetSdk
         versionCode = configs.Configs.VersionCode
@@ -50,10 +50,15 @@ android {
 dependencies {
     implementation(project(":feature-audio-book-listing"))
     implementation(project(":feature-audio-book-player"))
-    implementCommonDependencies()
-    implementation("com.google.android.material:material:1.6.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation(configs.SupportLibraries.Splashscreen)
+
+    implementation(configs.SupportLibraries.CoreKtx)
+    implementation(configs.SupportLibraries.Appcompat)
+    implementation(configs.Coroutines.CoroutineCore)
+    implementation(configs.Coroutines.CoroutineAndroid)
+    implementation(configs.SupportLibraries.LifecycleRuntime)
+    implementation(configs.SupportLibraries.ActivityKtx)
+
+    implementation(configs.UILibraries.Material)
 
     implementation(configs.DaggerHiltLib.Android)
     kapt(configs.DaggerHiltLib.Compiler)

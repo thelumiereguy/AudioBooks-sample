@@ -1,7 +1,5 @@
 package dev.thelumiereguy.data.repo
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.map
 import dev.thelumiereguy.data.local.dao.AudioBookDao
 import dev.thelumiereguy.data.local.mapper.mapResponseToEntity
 import dev.thelumiereguy.data.mapper.BookCoverToDrawableMapper
@@ -9,10 +7,14 @@ import dev.thelumiereguy.data.mapper.mapBookEntityToDomainModel
 import dev.thelumiereguy.data.models.AudioBook
 import dev.thelumiereguy.data.network.GetBooksApi
 import dev.thelumiereguy.helpers.framework.DispatcherProvider
-import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.*
 import java.io.IOException
 import javax.inject.Inject
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.supervisorScope
+import kotlinx.coroutines.withContext
 
 class BookListingRepoImpl @Inject constructor(
     private val booksApi: GetBooksApi,
@@ -30,7 +32,7 @@ class BookListingRepoImpl @Inject constructor(
             }.flowOn(dispatcherProvider.io)
     }
 
-    override fun getAudioBookDetails(bookId: Long): LiveData<AudioBook?> {
+    override fun getAudioBookDetails(bookId: Long): Flow<AudioBook?> {
         return audioBookDao.findAudioBook(bookId).map {
             it?.mapBookEntityToDomainModel(bookCoverToDrawableMapper)
         }

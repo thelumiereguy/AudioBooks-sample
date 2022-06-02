@@ -1,6 +1,5 @@
 package dev.thelumiereguy.data.local.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -24,7 +23,7 @@ abstract class AudioBookDao {
     abstract fun selectAudioBooks(searchString: String): Flow<List<AudioBookEntity>?>
 
     @Query("SELECT * from audio_books WHERE book_id=:bookId")
-    abstract fun findAudioBook(bookId: Long): LiveData<AudioBookEntity?>
+    abstract fun findAudioBook(bookId: Long): Flow<AudioBookEntity?>
 
     @Query("UPDATE audio_books SET book_progress=:progress WHERE book_id=:bookId")
     abstract fun updateAudioBookProgress(bookId: Long, progress: Int)

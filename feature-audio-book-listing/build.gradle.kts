@@ -1,3 +1,4 @@
+import configs.extensions.implementation
 import configs.implementCommonDependencies
 
 plugins {
@@ -10,19 +11,19 @@ plugins {
 
 android {
     namespace = "dev.thelumiereguy.feature_book_listing"
-    compileSdk = 32
+    compileSdk = configs.Configs.CompileSdk
 
     defaultConfig {
-        minSdk = 21
-        targetSdk = 32
+        minSdk = configs.Configs.MinSdk
+        targetSdk = configs.Configs.TargetSdk
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = configs.Configs.AndroidJunitRunner
         consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -59,26 +60,26 @@ dependencies {
     implementation(project(":core:ab-tests"))
     implementation(project(":helpers"))
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("com.google.android.material:material:1.6.0")
+    implementation(configs.SupportLibraries.CoreKtx)
+    implementation(configs.SupportLibraries.Appcompat)
+    implementation(configs.UILibraries.Material)
 
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.4.1")
+    implementation(configs.SupportLibraries.LifecycleLivedata)
+    implementation(configs.SupportLibraries.LifecycleViewModel)
+    implementation(configs.SupportLibraries.LifecycleViewModelSavedState)
 
-    implementation("androidx.fragment:fragment-ktx:1.4.1")
+    implementation(configs.SupportLibraries.FragmentKtx)
 
-    implementation("com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.2")
-    implementation("com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.2")
+    implementation(configs.AdapterDelegates.AdapterDelegatesDsl)
+    implementation(configs.AdapterDelegates.AdapterDelegatesViewBinding)
 
-    implementation("com.github.bumptech.glide:glide:4.12.0")
+    implementation(configs.Utilities.Glide)
 
     testImplementation(kotlin("test"))
 
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.2")
+    testImplementation(configs.Coroutines.CoroutineTest)
 
-    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation(configs.TestUtils.JupiterJunit)
 
-    testImplementation("io.mockk:mockk:1.12.2")
+    testImplementation(configs.TestUtils.MockK)
 }

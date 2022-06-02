@@ -12,6 +12,9 @@ import androidx.core.os.postDelayed
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.transition.Fade
 import androidx.transition.Slide
 import androidx.transition.TransitionManager
@@ -22,6 +25,7 @@ import dev.thelumiereguy.feature_audio_book_player.R
 import dev.thelumiereguy.feature_audio_book_player.databinding.FragmentAudioBookPlayerBinding
 import dev.thelumiereguy.feature_audio_book_player.viewmodel.AudioBookPlayerViewModel
 import dev.thelumiereguy.feature_audio_book_player.viewmodel.UIState
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class AudioBookPlayerFragment : Fragment(R.layout.fragment_audio_book_player) {
@@ -65,19 +69,23 @@ class AudioBookPlayerFragment : Fragment(R.layout.fragment_audio_book_player) {
     }
 
     private fun observeViewModel() {
-        viewModel.state.observe(viewLifecycleOwner) { uiState ->
-            when (uiState) {
-                is UIState.LoadPlayerState -> {
-                    setBookDetails(uiState.book)
-                }
-                UIState.NoSuchAudioBook -> {
-                    Toast.makeText(
-                        requireContext(),
-                        "This Audiobook is not available at the moment. Please try again later",
-                        Toast.LENGTH_SHORT
-                    ).show()
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.state.collect { uiState ->
+                    when (uiState) {
+                        is UIState.LoadPlayerState -> {
+                            setBookDetails(uiState.book)
+                        }
+                        UIState.NoSuchAudioBook -> {
+                            Toast.makeText(
+                                requireContext(),
+                                "This Audiobook is not available at the moment. Please try again later",
+                                Toast.LENGTH_SHORT
+                            ).show()
 
-                    popFragment()
+                            popFragment()
+                        }
+                    }
                 }
             }
         }

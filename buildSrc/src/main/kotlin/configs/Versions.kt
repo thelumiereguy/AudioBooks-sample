@@ -1,68 +1,82 @@
 package configs
 
 object Versions {
-    const val Compose = "1.2.0-alpha08"
+    const val MockK = "1.12.2"
+    const val Glide = "4.12.0"
+    const val RecyclerView = "1.2.1"
+    const val KotlinXSerialization = "1.3.3"
+
+    const val ConstraintLayout = "2.1.4"
+    const val MaterialDesign = "1.6.0"
 
     const val CoreKtx = "1.7.0"
     const val AppCompat = "1.4.1"
     const val LifeCycleRuntime = "2.4.1"
     const val Activity = "1.4.0"
-    const val Splash = "1.0.0-beta02"
+    const val Fragment = "1.4.1"
 
-    const val Coroutines = "1.6.1"
+    const val Coroutines = "1.6.2"
+
+    const val Room = "2.4.2"
+
+    const val AdapterDelegates = "4.3.2"
 }
 
 object SupportLibraries {
     const val CoreKtx = "androidx.core:core-ktx:${Versions.CoreKtx}"
     const val Appcompat = "androidx.appcompat:appcompat:${Versions.AppCompat}"
-    const val CoroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Coroutines}"
-    const val CoroutineAndroid =
-        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Coroutines}"
     const val LifecycleRuntime =
         "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.LifeCycleRuntime}"
+    const val LifecycleLivedata =
+        "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.LifeCycleRuntime}"
+    const val LifecycleViewModel =
+        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LifeCycleRuntime}"
+    const val LifecycleViewModelSavedState =
+        "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.LifeCycleRuntime}"
     const val ActivityKtx = "androidx.activity:activity-ktx:${Versions.Activity}"
-    const val Splashscreen = "androidx.core:core-splashscreen:${Versions.Splash}"
+    const val FragmentKtx = "androidx.fragment:fragment-ktx:${Versions.Fragment}"
 }
 
-object ComposeLibraries {
-    const val Ui = "androidx.compose.ui:ui:${Versions.Compose}"
-    const val Material = "androidx.compose.material3:material3:1.0.0-alpha10"
-    const val Preview = "androidx.compose.ui:ui-tooling-preview:${Versions.Compose}"
-    const val Runtime = "androidx.compose.runtime:runtime:${Versions.Compose}"
-    const val Foundation = "androidx.compose.foundation:foundation:${Versions.Compose}"
-    const val MaterialIconCore = "androidx.compose.material:material-icons-core:${Versions.Compose}"
-    const val MaterialIconExtended =
-        "androidx.compose.material:material-icons-extended:${Versions.Compose}"
-    const val Tooling = "androidx.compose.ui:ui-tooling:${Versions.Compose}"
-    const val Manifest = "androidx.compose.ui:ui-test-manifest:${Versions.Compose}"
-
-    const val Activity = "androidx.activity:activity-compose:1.4.0"
-    const val ViewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
-    const val Coil = "io.coil-kt:coil-compose:2.0.0-rc02"
+object UILibraries {
+    const val ConstraintLayout =
+        "androidx.constraintlayout:constraintlayout:${Versions.ConstraintLayout}"
+    const val Material = "com.google.android.material:material:${Versions.MaterialDesign}"
+    const val RecyclerView = "androidx.recyclerview:recyclerview:${Versions.RecyclerView}"
 }
 
-object NavigationLib {
-    const val Navigation = "androidx.navigation:navigation-compose:2.4.2"
-    const val DestinationCore = "io.github.raamcosta.compose-destinations:core:1.4.4-beta"
-    const val DestinationKsp = "io.github.raamcosta.compose-destinations:ksp:1.4.4-beta"
-    const val DestinationAnimation =
-        "io.github.raamcosta.compose-destinations:animations-core:1.4.4-beta"
+object Room {
+    const val RoomRuntime = "androidx.room:room-runtime:${Versions.Room}"
+    const val RoomCompiler = "androidx.room:room-compiler:${Versions.Room}"
+    const val RoomKtx = "androidx.room:room-ktx:${Versions.Room}"
 }
 
-object AccompanistLib {
-    const val Systemuicontroller = "com.google.accompanist:accompanist-systemuicontroller:0.23.1"
-    const val Insets = "com.google.accompanist:accompanist-insets:0.23.1"
-    const val PlaceholderMaterial = "com.google.accompanist:accompanist-placeholder-material:0.23.1"
-    const val NavigationMaterial = "com.google.accompanist:accompanist-navigation-material:0.23.1"
-    const val Permissions = "com.google.accompanist:accompanist-permissions:0.23.1"
-}
-
-object Utilities {
-    const val Timber = "com.jakewharton.timber:timber:5.0.1"
+object Coroutines {
+    const val CoroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Coroutines}"
+    const val CoroutineTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Coroutines}"
+    const val CoroutineAndroid =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Coroutines}"
 }
 
 object DaggerHiltLib {
     const val Android = "com.google.dagger:hilt-android:2.41"
     const val Compiler = "com.google.dagger:hilt-android-compiler:2.41"
-    const val Compose = "androidx.hilt:hilt-navigation-compose:1.0.0"
+}
+
+object AdapterDelegates {
+    const val AdapterDelegatesDsl =
+        "com.hannesdorfmann:adapterdelegates4-kotlin-dsl:${Versions.AdapterDelegates}"
+    const val AdapterDelegatesViewBinding =
+        "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:${Versions.AdapterDelegates}"
+}
+
+object Utilities {
+    const val KotlinXSerializationJson =
+        "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.KotlinXSerialization}"
+
+    const val Glide = "com.github.bumptech.glide:glide:${Versions.Glide}"
+}
+
+object TestUtils {
+    const val JupiterJunit = "org.junit.jupiter:junit-jupiter"
+    const val MockK = "io.mockk:mockk:${Versions.MockK}"
 }

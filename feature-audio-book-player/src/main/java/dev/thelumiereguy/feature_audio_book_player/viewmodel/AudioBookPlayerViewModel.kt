@@ -3,6 +3,7 @@ package dev.thelumiereguy.feature_audio_book_player.viewmodel
 import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.thelumiereguy.data.repo.BookListingRepo
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -14,9 +15,9 @@ class AudioBookPlayerViewModel @Inject constructor(
 
     private var bookId: Long? = null
 
-    private val bookIdLiveData = handle.getLiveData<Long>(BOOK_ID)
+    private val bookIdLiveData = handle.getLiveData<Long>(BOOK_ID).asFlow()
 
-    val state = Transformations.switchMap(bookIdLiveData) { bookId ->
+    val state = bookIdLiveData.flatMapLatest { bookId ->
         this.bookId = bookId
         bookListingRepo.getAudioBookDetails(bookId)
     }.map { audioBook ->
@@ -25,7 +26,8 @@ class AudioBookPlayerViewModel @Inject constructor(
         } else {
             UIState.NoSuchAudioBook
         }
-    }
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(), null)
+        .filterNotNull()
 
     fun setAudioBookDetails(bookId: Long) {
         handle.set(BOOK_ID, bookId)

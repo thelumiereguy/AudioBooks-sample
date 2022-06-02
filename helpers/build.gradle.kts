@@ -21,7 +21,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -40,16 +40,15 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.7.0")
+    implementation(configs.SupportLibraries.CoreKtx)
 
-    implementation("androidx.appcompat:appcompat:1.4.1")
+    implementation(configs.SupportLibraries.Appcompat)
 
     implementation(configs.DaggerHiltLib.Android)
     kapt(configs.DaggerHiltLib.Compiler)
-    implementation(configs.SupportLibraries.CoroutineCore)
-    implementation(configs.SupportLibraries.CoroutineAndroid)
+    implementation(configs.Coroutines.CoroutineCore)
+    implementation(configs.Coroutines.CoroutineAndroid)
 
-    implementation("androidx.recyclerview:recyclerview:1.2.1")
-
-    implementation("com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.2")
+    implementation(configs.UILibraries.RecyclerView)
+    implementation(configs.AdapterDelegates.AdapterDelegatesDsl)
 }

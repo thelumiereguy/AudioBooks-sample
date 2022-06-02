@@ -1,3 +1,5 @@
+import configs.extensions.implementation
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -8,19 +10,18 @@ plugins {
 
 android {
     namespace = "dev.thelumiereguy.ab_tests"
-    compileSdk = 32
+    compileSdk = configs.Configs.CompileSdk
 
     defaultConfig {
-        minSdk = 21
-        targetSdk = 32
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        minSdk = configs.Configs.MinSdk
+        targetSdk = configs.Configs.TargetSdk
+        testInstrumentationRunner = configs.Configs.AndroidJunitRunner
         consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -40,7 +41,7 @@ android {
 dependencies {
     implementation(configs.DaggerHiltLib.Android)
     kapt(configs.DaggerHiltLib.Compiler)
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("com.google.android.material:material:1.6.0")
+
+    implementation(configs.SupportLibraries.CoreKtx)
+    implementation(configs.SupportLibraries.Appcompat)
 }

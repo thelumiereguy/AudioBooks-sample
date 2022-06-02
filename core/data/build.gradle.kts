@@ -1,3 +1,4 @@
+import configs.extensions.implementation
 import configs.implementCommonDependencies
 
 plugins {
@@ -12,11 +13,11 @@ plugins {
 
 android {
     namespace = "dev.thelumiereguy.data"
-    compileSdk = 32
+    compileSdk = configs.Configs.CompileSdk
 
     defaultConfig {
-        minSdk = 21
-        targetSdk = 32
+        minSdk = configs.Configs.MinSdk
+        targetSdk = configs.Configs.TargetSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -24,7 +25,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -42,23 +43,19 @@ android {
 }
 
 dependencies {
-    val roomVersion = "2.4.2"
-
     implementCommonDependencies()
     implementation(configs.DaggerHiltLib.Android)
     kapt(configs.DaggerHiltLib.Compiler)
 
     implementation(project(":helpers"))
 
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
-    implementation("com.google.android.material:material:1.6.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
+    implementation(configs.Utilities.KotlinXSerializationJson)
+    implementation(configs.SupportLibraries.CoreKtx)
+    implementation(configs.SupportLibraries.Appcompat)
 
-    implementation("androidx.room:room-runtime:$roomVersion")
-    ksp("androidx.room:room-compiler:$roomVersion")
-    implementation("androidx.room:room-ktx:$roomVersion")
+    implementation(configs.UILibraries.Material)
+
+    implementation(configs.Room.RoomRuntime)
+    ksp(configs.Room.RoomCompiler)
+    implementation(configs.Room.RoomKtx)
 }

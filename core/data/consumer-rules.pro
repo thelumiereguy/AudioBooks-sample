@@ -1,0 +1,2 @@
+-keep class dev.thelumiereguy.data.network.models.** { *; }
+-keep class dev.thelumiereguy.data.local.models.** { *; }
